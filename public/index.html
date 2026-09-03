@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <section id="joinScreen" class="card">
+      <h1>💬 Real-Time Chat</h1>
+      <p>Join a room and start chatting instantly.</p>
+
+      <form id="joinForm">
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter username"
+          required
+          maxlength="20"
+        >
+
+        <select id="room">
+          <option value="general">General</option>
+          <option value="technology">Technology</option>
+          <option value="gaming">Gaming</option>
+          <option value="random">Random</option>
+        </select>
+
+        <button type="submit">Join Chat</button>
+      </form>
+    </section>
+
+
+    <section id="chatScreen" class="chat-layout hidden">
+
+      <header class="chat-header">
+        <div>
+          <h1>💬 Real-Time Chat</h1>
+          <span id="currentRoom"></span>
+        </div>
+
+        <button id="leaveBtn">Leave</button>
+      </header>
+
+
+      <main class="chat-main">
+
+        <div class="messages-area">
+          <div id="messages"></div>
+
+          <div id="typingIndicator"></div>
+
+          <form id="messageForm" class="message-form">
+            <input
+              type="text"
+              id="messageInput"
+              placeholder="Type a message..."
+              autocomplete="off"
+              maxlength="500"
+            >
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+
+
+        <aside class="users-panel">
+          <h3>Online Users</h3>
+          <ul id="userList"></ul>
+        </aside>
+
+      </main>
+
+    </section>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
